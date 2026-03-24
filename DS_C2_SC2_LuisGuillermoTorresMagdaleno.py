@@ -13,3 +13,11 @@ df = pandas.read_csv(r"C:\\Users\\sasor\\Desktop\\Tec de mty\\2. Procesamiento y
 
 print(df.head())
 df.info()
+
+# b. Mostrar la estructura y tipos de datos de cada columna para identificar qué operaciones puedes realizar con cada una de ellas, asegurándote que las columnas con fechas sean del tipo datetime64
+
+print(df.dtypes)
+print(df.shape)
+
+df["date"] = pandas.to_datetime(df["date"])
+df["date"]
