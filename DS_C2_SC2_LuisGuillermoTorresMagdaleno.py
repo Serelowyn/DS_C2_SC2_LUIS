@@ -21,3 +21,10 @@ print(df.shape)
 
 df["date"] = pandas.to_datetime(df["date"])
 df["date"]
+
+# c. Determinar la cantidad de vacunas aplicadas de cada compañía (con base en cómo lo reporta cada país en la columna vaccines, en otras palabras, agrupe por vaccines y realice la sumatoria). 
+
+df_vacunas = df.assign(vaccine=df["vaccines"].str.split(", ")).explode("vaccine")
+conteo_vacunas = df_vacunas["vaccine"].value_counts()
+
+print(conteo_vacunas)
