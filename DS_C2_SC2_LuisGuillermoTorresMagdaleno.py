@@ -56,3 +56,13 @@ conDiferencias = df.copy()
 conDiferencias["diferencias"] = conDiferencias["daily_vaccinations"] - conDiferencias["daily_vaccinations_raw"]
 
 print(conDiferencias)
+
+# h. Obtener el periodo de tiempo entre el registro con fecha más reciente y el registro con fecha más antigua.
+
+fecha_min = df["date"].min()
+fecha_max = df["date"].max()
+periodo = fecha_max - fecha_min
+
+print("fecha mas antigua:", fecha_min)
+print("fecha mas reciente:", fecha_max)
+print("tiempo en dias:", periodo)
