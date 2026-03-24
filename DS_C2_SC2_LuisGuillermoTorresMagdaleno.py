@@ -42,3 +42,10 @@ print(total_vacunas)
 num_paises = df["country"].nunique()
 promedio_por_pais = total_vacunas / num_paises
 print("promedio vacunas aplicadas por pais:", promedio_por_pais)
+
+# f. Determinar la cantidad de vacunas aplicadas el día 29/01/21 en todo el mundo. 
+
+vacunas_dia = df[df["date"] == "2021-01-29"]
+total_vacunas_dia = vacunas_dia["daily_vaccinations"].sum(skipna=True)
+
+print("svacunas aplicadas en el mundo el 29/01/2021:", total_vacunas_dia)
