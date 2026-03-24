@@ -28,3 +28,17 @@ df_vacunas = df.assign(vaccine=df["vaccines"].str.split(", ")).explode("vaccine"
 conteo_vacunas = df_vacunas["vaccine"].value_counts()
 
 print(conteo_vacunas)
+
+# d. Obtener la cantidad de vacunas aplicadas en todo el mundo. (y por pais)
+
+por_pais = df[["country", "vaccines"]].groupby("country").count()
+print(por_pais)
+total_mundial = df['total_vaccinations'].sum()
+print(total_mundial)
+
+total_vacunas = df["total_vaccinations"].sum(skipna=True)
+print(total_vacunas)
+
+num_paises = df["country"].nunique()
+promedio_por_pais = total_vacunas / num_paises
+print("promedio vacunas aplicadas por pais:", promedio_por_pais)
