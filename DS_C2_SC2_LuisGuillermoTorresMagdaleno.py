@@ -49,3 +49,10 @@ vacunas_dia = df[df["date"] == "2021-01-29"]
 total_vacunas_dia = vacunas_dia["daily_vaccinations"].sum(skipna=True)
 
 print("svacunas aplicadas en el mundo el 29/01/2021:", total_vacunas_dia)
+
+#g. Crear un dataframe nuevo denominado conDiferencias que contenga los datos originales y una columna derivada (diferencias) con las diferencias de aplicación entre las columnas daily_vaccionations y daily_vaccionations_raw.
+
+conDiferencias = df.copy()
+conDiferencias["diferencias"] = conDiferencias["daily_vaccinations"] - conDiferencias["daily_vaccinations_raw"]
+
+print(conDiferencias)
