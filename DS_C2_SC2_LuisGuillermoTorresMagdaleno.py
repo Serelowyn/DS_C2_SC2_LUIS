@@ -84,3 +84,18 @@ print("registros antes del 20/12/2020:", len(antes20))
 pfizer = df[df["vaccines"].str.contains("Pfizer/BioNTech", na=False)]
 print(pfizer)
 print("registros con Pfizer/BioNTech:", len(pfizer))
+
+# l. Almacenar los dataframes generados (conDiferencias, conCantidad, antes20 y pfizer) en un archivo de Excel denominado resultadosReto.xlsx, donde cada dataframe ocupe una hoja diferente. Se recomienda ver la documentación de pd.ExcelWriter. 
+
+with pandas.ExcelWriter("C:\\Users\\sasor\\Desktop\\Tec de mty\\2. Procesamiento y manipulacion de datos en python\\2. Panda y Numpy en Python\\reto\\resultadosReto.xlsx", engine="openpyxl") as writer:
+    conDiferencias.to_excel(writer, sheet_name="ConDiferencias", index=False)
+    conCantidad.to_excel(writer, sheet_name="ConCantidad", index=False)
+    antes20.to_excel(writer, sheet_name="Antes20", index=False)
+    pfizer.to_excel(writer, sheet_name="Pfizer", index=False)
+    
+# para el colab
+# with pandas.ExcelWriter("/content/drive/MyDrive/Colab Notebooks/resultadosReto.xlsx", engine="openpyxl") as writer:
+#     conDiferencias.to_excel(writer, sheet_name="ConDiferencias", index=False)
+#     conCantidad.to_excel(writer, sheet_name="ConCantidad", index=False)
+#     antes20.to_excel(writer, sheet_name="Antes20", index=False)
+#     pfizer.to_excel(writer, sheet_name="Pfizer", index=False)
