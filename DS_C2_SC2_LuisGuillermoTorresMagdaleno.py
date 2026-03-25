@@ -72,3 +72,9 @@ print("tiempo en dias:", periodo)
 df["canVac"] = df["vaccines"].str.split(", ").str.len()
 conCantidad = df.copy()
 print(conCantidad)
+
+# j. Generar un dataframe denominado antes20 con todos los registros que se hayan realizado antes del 20 de diciembre de 2020.
+
+antes20 = df[df["date"] < "2020-12-20"]
+print(antes20.head())
+print("registros antes del 20/12/2020:", len(antes20))
