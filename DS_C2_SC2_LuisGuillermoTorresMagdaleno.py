@@ -66,3 +66,9 @@ periodo = fecha_max - fecha_min
 print("fecha mas antigua:", fecha_min)
 print("fecha mas reciente:", fecha_max)
 print("tiempo en dias:", periodo)
+
+# i. Crear un dataframe nuevo denominado conCantidad que contenga los datos originales y una columna derivada (canVac) con la cantidad de vacunas utilizadas cada día (usar la columna vaccines y separar por el carácter , ).
+
+df["canVac"] = df["vaccines"].str.split(", ").str.len()
+conCantidad = df.copy()
+print(conCantidad)
