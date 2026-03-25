@@ -78,3 +78,9 @@ print(conCantidad)
 antes20 = df[df["date"] < "2020-12-20"]
 print(antes20.head())
 print("registros antes del 20/12/2020:", len(antes20))
+
+# k. Obtener un dataframe denominado pfizer con todos los registros donde se haya utilizado la vacuna Pfizer.
+
+pfizer = df[df["vaccines"].str.contains("Pfizer/BioNTech", na=False)]
+print(pfizer)
+print("registros con Pfizer/BioNTech:", len(pfizer))
